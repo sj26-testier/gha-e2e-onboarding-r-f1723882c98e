@@ -1,0 +1,26 @@
+{
+  "name": "Telemetry nonmatch",
+  "on": {
+    "push": {
+      "branches": [
+        "telemetry-linear"
+      ],
+      "paths": [
+        "transient.txt"
+      ]
+    }
+  },
+  "permissions": {},
+  "jobs": {
+    "marker": {
+      "name": "Telemetry nonmatch",
+      "runs-on": "ubuntu-latest",
+      "timeout-minutes": 2,
+      "steps": [
+        {
+          "run": "echo TELEMETRY_RELEASE_PROOF variant=nonmatch event=$GITHUB_EVENT_NAME sha=$GITHUB_SHA ref=$GITHUB_REF"
+        }
+      ]
+    }
+  }
+}

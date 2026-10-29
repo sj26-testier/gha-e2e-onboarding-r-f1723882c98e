@@ -1,0 +1,23 @@
+{
+  "name": "Telemetry control",
+  "on": {
+    "push": {
+      "branches": [
+        "telemetry-linear"
+      ]
+    }
+  },
+  "permissions": {},
+  "jobs": {
+    "marker": {
+      "name": "Telemetry control",
+      "runs-on": "ubuntu-latest",
+      "timeout-minutes": 2,
+      "steps": [
+        {
+          "run": "echo TELEMETRY_RELEASE_PROOF variant=control event=$GITHUB_EVENT_NAME sha=$GITHUB_SHA ref=$GITHUB_REF"
+        }
+      ]
+    }
+  }
+}

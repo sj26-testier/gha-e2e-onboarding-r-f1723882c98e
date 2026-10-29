@@ -1,0 +1,26 @@
+{
+  "name": "Telemetry match",
+  "on": {
+    "push": {
+      "branches": [
+        "telemetry-linear"
+      ],
+      "paths": [
+        "early.txt"
+      ]
+    }
+  },
+  "permissions": {},
+  "jobs": {
+    "marker": {
+      "name": "Telemetry match",
+      "runs-on": "ubuntu-latest",
+      "timeout-minutes": 2,
+      "steps": [
+        {
+          "run": "echo TELEMETRY_RELEASE_PROOF variant=match event=$GITHUB_EVENT_NAME sha=$GITHUB_SHA ref=$GITHUB_REF"
+        }
+      ]
+    }
+  }
+}
